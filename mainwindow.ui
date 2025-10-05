@@ -1,0 +1,863 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Home - realcircuit</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <property name="tabsClosable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Home</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="font">
+           <font>
+            <pointsize>30</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Realcircuit</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QPushButton" name="BTNCreateProject">
+            <property name="text">
+             <string>Create Project</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="BTNImportProject">
+            <property name="text">
+             <string>Import</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <item>
+             <widget class="QLabel" name="label_2">
+              <property name="text">
+               <string>Recent Projects</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QListView" name="listView">
+              <property name="maximumSize">
+               <size>
+                <width>300</width>
+                <height>16777215</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>Get Started</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QListView" name="listView_2"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <widget class="QMenu" name="menuNew">
+     <property name="title">
+      <string>New</string>
+     </property>
+     <addaction name="actionNewProject"/>
+     <addaction name="actionNewCircuit"/>
+     <addaction name="actionNewSubcircuit"/>
+    </widget>
+    <widget class="QMenu" name="menuRecent_Projects">
+     <property name="title">
+      <string>Recent Projects</string>
+     </property>
+    </widget>
+    <widget class="QMenu" name="menuExport">
+     <property name="title">
+      <string>Export</string>
+     </property>
+     <addaction name="actionExportCircuitImage"/>
+     <addaction name="separator"/>
+     <addaction name="actionExportAsPDF"/>
+    </widget>
+    <addaction name="menuNew"/>
+    <addaction name="actionOpenProject"/>
+    <addaction name="menuRecent_Projects"/>
+    <addaction name="separator"/>
+    <addaction name="actionSaveProject"/>
+    <addaction name="actionSaveProjectAs"/>
+    <addaction name="actionSaveAll"/>
+    <addaction name="separator"/>
+    <addaction name="menuExport"/>
+    <addaction name="separator"/>
+    <addaction name="actionCloseProject"/>
+    <addaction name="actionCloseAll"/>
+    <addaction name="separator"/>
+    <addaction name="actionProjectSettings"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <widget class="QMenu" name="menuCheckpoint">
+     <property name="title">
+      <string>Checkpoint</string>
+     </property>
+     <addaction name="actionCreateCheckpoint"/>
+     <addaction name="actionManageCheckpoints"/>
+     <addaction name="actionRestoreCheckpoint"/>
+    </widget>
+    <addaction name="actionUndo"/>
+    <addaction name="actionRedo"/>
+    <addaction name="separator"/>
+    <addaction name="actionCut"/>
+    <addaction name="actionCopy"/>
+    <addaction name="actionPaste"/>
+    <addaction name="actionDuplicate"/>
+    <addaction name="actionDelete"/>
+    <addaction name="separator"/>
+    <addaction name="actionSelectAll"/>
+    <addaction name="actionDeselectAll"/>
+    <addaction name="separator"/>
+    <addaction name="actionFind"/>
+    <addaction name="actionReplace"/>
+    <addaction name="separator"/>
+    <addaction name="menuCheckpoint"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <widget class="QMenu" name="menuGraphicsQuality">
+     <property name="title">
+      <string>Graphics Quality</string>
+     </property>
+     <addaction name="actionQualityAutomatic"/>
+     <addaction name="separator"/>
+     <addaction name="actionQualityLow"/>
+     <addaction name="actionQualityMedium"/>
+     <addaction name="actionQualityHigh"/>
+    </widget>
+    <widget class="QMenu" name="menuGrid">
+     <property name="title">
+      <string>Grid</string>
+     </property>
+     <addaction name="actionShowGrid"/>
+     <addaction name="actionSnapToGrid"/>
+     <addaction name="separator"/>
+     <addaction name="actionGridSettings"/>
+    </widget>
+    <widget class="QMenu" name="menuToolbars">
+     <property name="title">
+      <string>Toolbars</string>
+     </property>
+     <addaction name="actionShowMainToolbar"/>
+     <addaction name="actionShowComponentToolbar"/>
+     <addaction name="actionShowSimulationToolbar"/>
+    </widget>
+    <addaction name="actionZoomIn"/>
+    <addaction name="actionZoomOut"/>
+    <addaction name="actionZoomFit"/>
+    <addaction name="actionZoomActualSize"/>
+    <addaction name="separator"/>
+    <addaction name="menuGrid"/>
+    <addaction name="actionShowRulers"/>
+    <addaction name="separator"/>
+    <addaction name="menuToolbars"/>
+    <addaction name="actionShowComponentPanel"/>
+    <addaction name="actionShowPropertiesPanel"/>
+    <addaction name="actionShowOutputConsole"/>
+    <addaction name="separator"/>
+    <addaction name="actionDirectControl"/>
+    <addaction name="actionScientificCalculator"/>
+    <addaction name="actionOscilloscope"/>
+    <addaction name="actionLogicAnalyzer"/>
+    <addaction name="actionFunctionGenerator"/>
+    <addaction name="separator"/>
+    <addaction name="menuGraphicsQuality"/>
+    <addaction name="separator"/>
+    <addaction name="actionFullScreen"/>
+   </widget>
+   <widget class="QMenu" name="menuCircuit">
+    <property name="title">
+     <string>Circuit</string>
+    </property>
+    <widget class="QMenu" name="menuSimulationSpeed">
+     <property name="title">
+      <string>Simulation Speed</string>
+     </property>
+     <addaction name="actionSpeedSlow"/>
+     <addaction name="actionSpeedNormal"/>
+     <addaction name="actionSpeedFast"/>
+     <addaction name="actionSpeedMaximum"/>
+    </widget>
+    <addaction name="actionRun"/>
+    <addaction name="actionPauseContinue"/>
+    <addaction name="actionStop"/>
+    <addaction name="actionRestart"/>
+    <addaction name="separator"/>
+    <addaction name="menuSimulationSpeed"/>
+    <addaction name="actionSimulationSettings"/>
+    <addaction name="separator"/>
+    <addaction name="actionAddComponent"/>
+    <addaction name="actionAddWire"/>
+    <addaction name="actionAddLabel"/>
+    <addaction name="separator"/>
+    <addaction name="actionRotateClockwise"/>
+    <addaction name="actionRotateCounterClockwise"/>
+    <addaction name="actionFlipHorizontal"/>
+    <addaction name="actionFlipVertical"/>
+    <addaction name="separator"/>
+    <addaction name="actionComponentProperties"/>
+    <addaction name="separator"/>
+    <addaction name="actionValidateCircuit"/>
+    <addaction name="actionAnalyzeCircuit"/>
+   </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <widget class="QMenu" name="menuMeasurement">
+     <property name="title">
+      <string>Measurement</string>
+     </property>
+     <addaction name="actionVoltmeter"/>
+     <addaction name="actionAmmeter"/>
+     <addaction name="actionOhmmeter"/>
+     <addaction name="actionPowerMeter"/>
+     <addaction name="actionFrequencyCounter"/>
+    </widget>
+    <addaction name="actionComponentLibrary"/>
+    <addaction name="actionManagePlugins"/>
+    <addaction name="separator"/>
+    <addaction name="menuMeasurement"/>
+    <addaction name="separator"/>
+    <addaction name="actionScriptEditor"/>
+    <addaction name="actionCommandLine"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionDocumentation"/>
+    <addaction name="actionTutorials"/>
+    <addaction name="actionExamples"/>
+    <addaction name="separator"/>
+    <addaction name="actionKeyboardShortcuts"/>
+    <addaction name="actionTipOfTheDay"/>
+    <addaction name="separator"/>
+    <addaction name="actionCheckForUpdates"/>
+    <addaction name="actionReportBug"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuView"/>
+   <addaction name="menuCircuit"/>
+   <addaction name="menuTools"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionNewProject">
+   <property name="text">
+    <string>Project</string>
+   </property>
+  </action>
+  <action name="actionNewCircuit">
+   <property name="text">
+    <string>Circuit</string>
+   </property>
+  </action>
+  <action name="actionNewSubcircuit">
+   <property name="text">
+    <string>Subcircuit</string>
+   </property>
+  </action>
+  <action name="actionOpenProject">
+   <property name="text">
+    <string>Open Project...</string>
+   </property>
+  </action>
+  <action name="actionClearRecentProjects">
+   <property name="text">
+    <string>Clear Recent Projects</string>
+   </property>
+  </action>
+  <action name="actionSaveProject">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionSaveProjectAs">
+   <property name="text">
+    <string>Save As...</string>
+   </property>
+  </action>
+  <action name="actionSaveAll">
+   <property name="text">
+    <string>Save All</string>
+   </property>
+  </action>
+  <action name="actionImportProject">
+   <property name="text">
+    <string>Import...</string>
+   </property>
+  </action>
+  <action name="actionExportCircuitImage">
+   <property name="text">
+    <string>Circuit as Image...</string>
+   </property>
+  </action>
+  <action name="actionExportNetlist">
+   <property name="text">
+    <string>Netlist...</string>
+   </property>
+  </action>
+  <action name="actionExportBOM">
+   <property name="text">
+    <string>Bill of Materials...</string>
+   </property>
+  </action>
+  <action name="actionExportAsPDF">
+   <property name="text">
+    <string>As PDF...</string>
+   </property>
+  </action>
+  <action name="actionCloseProject">
+   <property name="text">
+    <string>Close Project</string>
+   </property>
+  </action>
+  <action name="actionCloseAll">
+   <property name="text">
+    <string>Close All</string>
+   </property>
+  </action>
+  <action name="actionProjectSettings">
+   <property name="text">
+    <string>Project Settings...</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="text">
+    <string>Undo</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="text">
+    <string>Redo</string>
+   </property>
+  </action>
+  <action name="actionCut">
+   <property name="text">
+    <string>Cut</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="text">
+    <string>Copy</string>
+   </property>
+  </action>
+  <action name="actionPaste">
+   <property name="text">
+    <string>Paste</string>
+   </property>
+  </action>
+  <action name="actionDuplicate">
+   <property name="text">
+    <string>Duplicate</string>
+   </property>
+  </action>
+  <action name="actionDelete">
+   <property name="text">
+    <string>Delete</string>
+   </property>
+  </action>
+  <action name="actionSelectAll">
+   <property name="text">
+    <string>Select All</string>
+   </property>
+  </action>
+  <action name="actionDeselectAll">
+   <property name="text">
+    <string>Deselect All</string>
+   </property>
+  </action>
+  <action name="actionFind">
+   <property name="text">
+    <string>Find...</string>
+   </property>
+  </action>
+  <action name="actionReplace">
+   <property name="text">
+    <string>Replace...</string>
+   </property>
+  </action>
+  <action name="actionCreateCheckpoint">
+   <property name="text">
+    <string>Create Checkpoint</string>
+   </property>
+  </action>
+  <action name="actionManageCheckpoints">
+   <property name="text">
+    <string>Manage Checkpoints</string>
+   </property>
+  </action>
+  <action name="actionRestoreCheckpoint">
+   <property name="text">
+    <string>Restore Checkpoint</string>
+   </property>
+  </action>
+  <action name="actionPreferences">
+   <property name="text">
+    <string>Preferences...</string>
+   </property>
+  </action>
+  <action name="actionZoomIn">
+   <property name="text">
+    <string>Zoom In</string>
+   </property>
+  </action>
+  <action name="actionZoomOut">
+   <property name="text">
+    <string>Zoom Out</string>
+   </property>
+  </action>
+  <action name="actionZoomFit">
+   <property name="text">
+    <string>Zoom to Fit</string>
+   </property>
+  </action>
+  <action name="actionZoomActualSize">
+   <property name="text">
+    <string>Actual Size</string>
+   </property>
+  </action>
+  <action name="actionShowGrid">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Grid</string>
+   </property>
+  </action>
+  <action name="actionSnapToGrid">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Snap to Grid</string>
+   </property>
+  </action>
+  <action name="actionGridSettings">
+   <property name="text">
+    <string>Grid Settings...</string>
+   </property>
+  </action>
+  <action name="actionShowRulers">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Rulers</string>
+   </property>
+  </action>
+  <action name="actionShowMainToolbar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Main Toolbar</string>
+   </property>
+  </action>
+  <action name="actionShowComponentToolbar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Component Toolbar</string>
+   </property>
+  </action>
+  <action name="actionShowSimulationToolbar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Simulation Toolbar</string>
+   </property>
+  </action>
+  <action name="actionShowComponentPanel">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Component Panel</string>
+   </property>
+  </action>
+  <action name="actionShowPropertiesPanel">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Properties Panel</string>
+   </property>
+  </action>
+  <action name="actionShowOutputConsole">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Output Console</string>
+   </property>
+  </action>
+  <action name="actionDirectControl">
+   <property name="text">
+    <string>Direct Control</string>
+   </property>
+  </action>
+  <action name="actionScientificCalculator">
+   <property name="text">
+    <string>Scientific Calculator</string>
+   </property>
+  </action>
+  <action name="actionOscilloscope">
+   <property name="text">
+    <string>Oscilloscope</string>
+   </property>
+  </action>
+  <action name="actionLogicAnalyzer">
+   <property name="text">
+    <string>Logic Analyzer</string>
+   </property>
+  </action>
+  <action name="actionFunctionGenerator">
+   <property name="text">
+    <string>Function Generator</string>
+   </property>
+  </action>
+  <action name="actionQualityAutomatic">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Automatic</string>
+   </property>
+  </action>
+  <action name="actionQualityLow">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Low (Run Smoothly In Low-End PC)</string>
+   </property>
+  </action>
+  <action name="actionQualityMedium">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Medium</string>
+   </property>
+  </action>
+  <action name="actionQualityHigh">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>High</string>
+   </property>
+  </action>
+  <action name="actionFullScreen">
+   <property name="text">
+    <string>Full Screen</string>
+   </property>
+  </action>
+  <action name="actionRun">
+   <property name="text">
+    <string>Run</string>
+   </property>
+  </action>
+  <action name="actionPauseContinue">
+   <property name="text">
+    <string>Pause/Continue</string>
+   </property>
+  </action>
+  <action name="actionStop">
+   <property name="text">
+    <string>Stop</string>
+   </property>
+  </action>
+  <action name="actionRestart">
+   <property name="text">
+    <string>Restart</string>
+   </property>
+  </action>
+  <action name="actionSpeedSlow">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Slow (0.5x)</string>
+   </property>
+  </action>
+  <action name="actionSpeedNormal">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Normal (1x)</string>
+   </property>
+  </action>
+  <action name="actionSpeedFast">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Fast (2x)</string>
+   </property>
+  </action>
+  <action name="actionSpeedMaximum">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Maximum</string>
+   </property>
+  </action>
+  <action name="actionSimulationSettings">
+   <property name="text">
+    <string>Simulation Settings...</string>
+   </property>
+  </action>
+  <action name="actionAddComponent">
+   <property name="text">
+    <string>Add Component</string>
+   </property>
+  </action>
+  <action name="actionAddWire">
+   <property name="text">
+    <string>Add Wire</string>
+   </property>
+  </action>
+  <action name="actionAddLabel">
+   <property name="text">
+    <string>Add Label</string>
+   </property>
+  </action>
+  <action name="actionRotateClockwise">
+   <property name="text">
+    <string>Rotate Clockwise</string>
+   </property>
+  </action>
+  <action name="actionRotateCounterClockwise">
+   <property name="text">
+    <string>Rotate Counter-Clockwise</string>
+   </property>
+  </action>
+  <action name="actionFlipHorizontal">
+   <property name="text">
+    <string>Flip Horizontal</string>
+   </property>
+  </action>
+  <action name="actionFlipVertical">
+   <property name="text">
+    <string>Flip Vertical</string>
+   </property>
+  </action>
+  <action name="actionComponentProperties">
+   <property name="text">
+    <string>Component Properties...</string>
+   </property>
+  </action>
+  <action name="actionValidateCircuit">
+   <property name="text">
+    <string>Validate Circuit</string>
+   </property>
+  </action>
+  <action name="actionAnalyzeCircuit">
+   <property name="text">
+    <string>Analyze Circuit</string>
+   </property>
+  </action>
+  <action name="actionComponentLibrary">
+   <property name="text">
+    <string>Component Library</string>
+   </property>
+  </action>
+  <action name="actionManagePlugins">
+   <property name="text">
+    <string>Manage Plugins</string>
+   </property>
+  </action>
+  <action name="actionVoltmeter">
+   <property name="text">
+    <string>Voltmeter</string>
+   </property>
+  </action>
+  <action name="actionAmmeter">
+   <property name="text">
+    <string>Ammeter</string>
+   </property>
+  </action>
+  <action name="actionOhmmeter">
+   <property name="text">
+    <string>Ohmmeter</string>
+   </property>
+  </action>
+  <action name="actionPowerMeter">
+   <property name="text">
+    <string>Power Meter</string>
+   </property>
+  </action>
+  <action name="actionFrequencyCounter">
+   <property name="text">
+    <string>Frequency Counter</string>
+   </property>
+  </action>
+  <action name="actionSpiceNetlist">
+   <property name="text">
+    <string>SPICE Netlist</string>
+   </property>
+  </action>
+  <action name="actionBOMGenerator">
+   <property name="text">
+    <string>BOM Generator</string>
+   </property>
+  </action>
+  <action name="actionPCBExport">
+   <property name="text">
+    <string>PCB Export</string>
+   </property>
+  </action>
+  <action name="actionScriptEditor">
+   <property name="text">
+    <string>Script Editor</string>
+   </property>
+  </action>
+  <action name="actionCommandLine">
+   <property name="text">
+    <string>Command Line</string>
+   </property>
+  </action>
+  <action name="actionDocumentation">
+   <property name="text">
+    <string>Documentation</string>
+   </property>
+  </action>
+  <action name="actionTutorials">
+   <property name="text">
+    <string>Tutorials</string>
+   </property>
+  </action>
+  <action name="actionExamples">
+   <property name="text">
+    <string>Examples</string>
+   </property>
+  </action>
+  <action name="actionKeyboardShortcuts">
+   <property name="text">
+    <string>Keyboard Shortcuts</string>
+   </property>
+  </action>
+  <action name="actionTipOfTheDay">
+   <property name="text">
+    <string>Tip of the Day</string>
+   </property>
+  </action>
+  <action name="actionCheckForUpdates">
+   <property name="text">
+    <string>Check for Updates</string>
+   </property>
+  </action>
+  <action name="actionReportBug">
+   <property name="text">
+    <string>Report a Bug</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About Realcircuit</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
